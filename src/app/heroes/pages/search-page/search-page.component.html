@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-10 m-auto">
+
+        <div class="flex flex-column">
+            <h3 class="text-2xl">Search</h3>
+        
+        <mat-form-field>
+            <mat-label>Hero finder</mat-label>
+            <input type="text" 
+                matInput
+                [formControl]="searchInput"
+                (input)="searchHero()"
+                [matAutocomplete]="auto"
+            />
+
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"
+            (optionSelected)="onSelectedOption($event)">
+                <mat-option *ngFor="let option of heroes" [value]="option">
+                    {{option.superhero}}
+                </mat-option>
+                <mat-option disabled *ngIf="heroes.length === 0 && searchInput.value?.length > 0" [value]=''>   
+                    No se encontraron resultados para {{searchInput.value}} 
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+    </div>
+    <div *ngIf="selectedHero" class="col-5 mx-auto hover:shadow-8" [routerLink]="['/heroes',selectedHero.id]">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{selectedHero.superhero}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image [src]="selectedHero | heroImage" alt="">
+            </mat-card>
+
+    </div>
+</div>
+</div>

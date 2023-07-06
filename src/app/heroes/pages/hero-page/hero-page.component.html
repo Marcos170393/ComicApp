@@ -1,0 +1,55 @@
+<ng-template #divloading>
+    <mat-grid-list cols="1">
+        <mat-grid-tile>
+            <mat-spinner></mat-spinner>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ng-template>
+<div *ngIf="hero;else divloading" class="grid mt-2 justify-content-center">
+    <mat-card class="col-12 sm:col-4">
+       
+        <img mat-card-image  [src]="hero | heroImage" [alt]="hero.superhero"/>
+
+    </mat-card>
+
+    <mat-card class="flex flex-column justify-content-between col-12 sm:col-7">
+        <div>
+
+            <mat-card-header class="my-3">
+                <mat-card-title class="text-6xl">{{hero.superhero}}</mat-card-title>
+            </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <mat-list>
+                    <br>
+                        <mat-list-item class="h-5rem">
+                            <h4 class="text-2xl" matLine>First appearence</h4>
+                            <p matLine>
+                                {{hero.first_appearance}}
+                            </p>
+                        </mat-list-item>
+                        <mat-list-item class="h-5rem">
+                            <h4 class="text-2xl" matLine>Characters</h4>
+                            <p matLine>
+                                {{hero.characters}}
+                            </p>
+                        </mat-list-item>
+                        <mat-list-item class="h-5rem">
+                            <h4 class="text-2xl" matLine>Publisher</h4>
+                                {{hero.publisher}}
+                        </mat-list-item>
+                        <mat-list-item class="h-5rem">
+                            <h4 class="text-2xl" matLine>Alter ego</h4>
+                            <p matLine>
+                                {{hero.alter_ego}}
+                            </p>    
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+        </div>
+        <mat-card-footer class="h-3rem text-center">
+            <mat-divider class="mb-3"></mat-divider>
+            <button mat-button class="" [routerLink]="['/heroes/list']"><mat-icon>arrow_back</mat-icon>Back to list</button>
+        </mat-card-footer>
+    </mat-card>
+</div>

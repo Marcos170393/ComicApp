@@ -1,0 +1,8 @@
+<h1 class="text-6xl m-5">Heores list</h1>
+<mat-divider></mat-divider>
+
+<div class="grid bm-8 pt-2 col-10 col-offset-1">
+    <div *ngFor="let hero of heroes" class="col-10 sm:col-4 md:col-3 xl:col-2">
+        <hero-card [hero]="hero"></hero-card>
+    </div>
+</div>
