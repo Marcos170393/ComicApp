@@ -14,6 +14,7 @@ import { HeroCardComponent } from './components/hero-card/hero-card.component';
 
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 import { TextLengthPipePipe } from './pipes/text-length-pipe.pipe';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TextLengthPipePipe } from './pipes/text-length-pipe.pipe';
     SearchPageComponent,
     HeroCardComponent,
     HeroImagePipe,
-    TextLengthPipePipe
+    TextLengthPipePipe,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,
