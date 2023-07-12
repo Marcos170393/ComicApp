@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/auth/interfaces/user.interface';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-layout-page',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
   ]
 })
 export class LayoutPageComponent {
+
 
   public sideBarItem = [ 
     {
@@ -19,4 +22,16 @@ export class LayoutPageComponent {
       label:'Search',icon:'search',url:'./search'
     }
    ]
+   
+  constructor(
+    private authService : AuthService
+  ){}
+
+  get currentUser(): User | undefined{
+    return this.authService.currentUser;
+  }
+
+  logout(){
+    this.authService.logout();
+  }
 }
